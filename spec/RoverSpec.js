@@ -30,5 +30,11 @@ describe("Rover", function(){
 			expect(rover).toBeIn(new Position(-2, 0));
 		});
 	});
+	describe("does not move", function(){
+		it("when left, right, left, right", function(){
+			rover.receive("lrlr");
+			expect(rover).toBeIn(new Position(0, 0));
+		});
+	});
 	
 });
