@@ -5,6 +5,8 @@ Rover = function(){
 Rover.prototype.receive = function(commands){
 	if(commands === "l"){
 		this.position = new Position(-1,0);
+	} else if(commands === "ll"){
+		this.position = new Position(-2,0);
 	} else {
 		this.position = new Position(1,0);
 	}
