@@ -10,8 +10,10 @@ Rover.prototype.receive = function(commands){
 
 		if(command === "l"){
 			this.position = new Position(this.position.x-1,0);
-		} else {
+		} else if (command === "r") {
 			this.position = new Position(this.position.x+1,0);
+		} else {
+			this.position = new Position(0, this.position.y+1);
 		}
 	}
 }
