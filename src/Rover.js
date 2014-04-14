@@ -3,21 +3,22 @@ Rover = function(){
 }
 
 Rover.prototype.receive = function(commandString){
-	var each, command, commandFactory = new CommandFactory(), commands = [];
+	var each, command, commandFactory = new CommandFactory(), commands = [], currentCommand;
 	
 	
 	for(each in commandString){
 		command=commandString[each];
 
 		if(command === "l"){
-			commands.push(commandFactory.left());
+			currentCommand = commandFactory.left();
 		} else if (command === "r") {
-			commands.push(commandFactory.right());
+			currentCommand = commandFactory.right();
 		} else if (command === "b") {
-			commands.push(commandFactory.backwards());
+			currentCommand = commandFactory.backwards();
 		} else { //forward
-			commands.push(commandFactory.forwards());
+			currentCommand = commandFactory.forwards();
 		}
+		commands.push(currentCommand);
 	}
 	
 	for(each in commands){
