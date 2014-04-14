@@ -3,6 +3,7 @@ Rover = function(){
 }
 
 Rover.prototype.receive = function(commands){
+	this.position = new Position(-1,0);
 }
 
 Position = function(x, y){
