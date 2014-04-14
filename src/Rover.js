@@ -2,12 +2,12 @@ Rover = function(){
 	this.position = new Position(0,0);
 }
 
-Rover.prototype.receive = function(commands){
-	var each, command, commandFactory = new CommandFactory();
+Rover.prototype.receive = function(commandString){
+	var each, command, commandFactory = new CommandFactory(), commands;
 	
 	
-	for(each in commands){
-		command=commands[each];
+	for(each in commandString){
+		command=commandString[each];
 
 		if(command === "l"){
 			this.position.applyCommand(commandFactory.left());
