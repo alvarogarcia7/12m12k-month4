@@ -14,7 +14,7 @@ Rover.prototype.receive = function(commands){
 		if(command === "l"){
 			this.position.applyCommand(new CommandLeft());
 		} else if (command === "r") {
-			this.position = new Position(x+1, y);
+			this.position.applyCommand(new CommandRight());
 		} else if (command === "b") {
 			this.position = new Position(x, y-1);
 		} else { //forward
@@ -35,4 +35,8 @@ Position.prototype.applyCommand = function(command){
 
 CommandLeft = function(){
 	this.increment = new Position(-1,0);
+}
+
+CommandRight = function(){
+	this.increment = new Position(1,0);
 }
