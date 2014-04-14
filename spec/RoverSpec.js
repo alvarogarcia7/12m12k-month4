@@ -41,9 +41,13 @@ describe("Rover", function(){
 		});
 	});
 	describe("moves in several directions:", function(){
-		it("backward", function(){
+		it("left forward", function(){
 			rover.receive("lf");
 			expect(rover).toBeIn(new Position(-1, 1));
+		});
+		it("left backward", function(){
+			rover.receive("lb");
+			expect(rover).toBeIn(new Position(-1, -1));
 		});
 	});
 	describe("does not move", function(){
