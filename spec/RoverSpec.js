@@ -16,7 +16,7 @@ describe("Rover", function(){
 		rover = new Rover();
 	});
 	
-	describe("moves in one direction", function(){
+	describe("moves in one direction:", function(){
 		it("left", function(){
 			rover.receive("l");
 			expect(rover).toBeIn(new Position(-1, 0));
@@ -38,6 +38,12 @@ describe("Rover", function(){
 		it("backward", function(){
 			rover.receive("b");
 			expect(rover).toBeIn(new Position(0, -1));
+		});
+	});
+	describe("moves in several directions:", function(){
+		it("backward", function(){
+			rover.receive("lf");
+			expect(rover).toBeIn(new Position(-1, 1));
 		});
 	});
 	describe("does not move", function(){
