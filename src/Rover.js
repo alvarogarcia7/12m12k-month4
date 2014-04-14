@@ -3,15 +3,15 @@ Rover = function(){
 }
 
 Rover.prototype.receive = function(commands){
-	var each, command, self = this;
+	var each, command;
 	
 	for(each in commands){
 		command=commands[each];
 
 		if(command === "l"){
-			self.position = new Position(self.position.x-1,0);
+			this.position = new Position(this.position.x-1,0);
 		} else {
-			self.position = new Position(self.position.x+1,0);
+			this.position = new Position(this.position.x+1,0);
 		}
 	}
 }
