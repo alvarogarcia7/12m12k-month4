@@ -8,14 +8,17 @@ Rover.prototype.receive = function(commands){
 	for(each in commands){
 		command=commands[each];
 
+		var x = this.position.x,
+			y = this.position.y;
+		
 		if(command === "l"){
-			this.position = new Position(this.position.x-1, this.position.y);
+			this.position = new Position(x-1, y);
 		} else if (command === "r") {
-			this.position = new Position(this.position.x+1, this.position.y);
+			this.position = new Position(x+1, y);
 		} else if (command === "b") {
-			this.position = new Position(this.position.x, this.position.y-1);
+			this.position = new Position(x, y-1);
 		} else { //forward
-			this.position = new Position(this.position.x, this.position.y+1);
+			this.position = new Position(x, y+1);
 		}
 	}
 }
