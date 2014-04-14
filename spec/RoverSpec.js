@@ -17,6 +17,10 @@ describe("Rover", function(){
 			rover.receive("l");
 			expect(rover).toBeIn(new Position(-1, 0));
 		});
+		it("right", function(){
+			rover.receive("r");
+			expect(rover).toBeIn(new Position(1, 0));
+		});
 	});
 	
 });
