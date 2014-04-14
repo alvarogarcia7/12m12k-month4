@@ -16,7 +16,7 @@ describe("Rover", function(){
 		rover = new Rover();
 	});
 	
-	describe("moves", function(){
+	describe("moves in one direction", function(){
 		it("left", function(){
 			rover.receive("l");
 			expect(rover).toBeIn(new Position(-1, 0));
