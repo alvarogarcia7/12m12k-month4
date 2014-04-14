@@ -1,14 +1,18 @@
 Rover = function(){
-	this.position = new Position();
+	this.position = new Position(0,0);
 }
 
 Rover.prototype.receive = function(commands){
-	if(commands === "l"){
-		this.position = new Position(-1,0);
-	} else if(commands === "ll"){
-		this.position = new Position(-2,0);
-	} else {
-		this.position = new Position(1,0);
+	var each, command, self = this;
+	
+	for(each in commands){
+		command=commands[each];
+
+		if(command === "l"){
+			self.position = new Position(self.position.x-1,0);
+		} else {
+			self.position = new Position(self.position.x+1,0);
+		}
 	}
 }
 

@@ -7,9 +7,13 @@ beforeEach(function() {
 });
 
 describe("Rover", function(){
-	var rover = new Rover();
+	var rover;
 	it("should exist", function(){
 		expect(rover).toBeTruthy();
+	});
+	
+	beforeEach(function(){
+		rover = new Rover();
 	});
 	
 	describe("moves", function(){
