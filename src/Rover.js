@@ -9,9 +9,6 @@ Rover.prototype.receive = function(commands){
 	for(each in commands){
 		command=commands[each];
 
-		var x = this.position.x,
-			y = this.position.y;
-		
 		if(command === "l"){
 			this.position.applyCommand(commandFactory.left());
 		} else if (command === "r") {
