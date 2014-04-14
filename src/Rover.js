@@ -3,7 +3,8 @@ Rover = function(){
 }
 
 Rover.prototype.receive = function(commands){
-	var each, command;
+	var each, command, commandFactory = new CommandFactory();
+	
 	
 	for(each in commands){
 		command=commands[each];
@@ -12,13 +13,13 @@ Rover.prototype.receive = function(commands){
 			y = this.position.y;
 		
 		if(command === "l"){
-			this.position.applyCommand(new CommandLeft());
+			this.position.applyCommand(commandFactory.left());
 		} else if (command === "r") {
-			this.position.applyCommand(new CommandRight());
+			this.position.applyCommand(commandFactory.right());
 		} else if (command === "b") {
-			this.position = new Position(x, y-1);
+			this.position.applyCommand(commandFactory.backwards());
 		} else { //forward
-			this.position = new Position(x, y+1);
+			this.position.applyCommand(commandFactory.forwards());
 		}
 	}
 }
@@ -29,14 +30,21 @@ Position = function(x, y){
 }
 
 Position.prototype.applyCommand = function(command){
-	this.x+=command.increment.x;
-	this.y+=command.increment.y;
+	this.x+=command.x;
+	this.y+=command.y;
 }
 
-CommandLeft = function(){
-	this.increment = new Position(-1,0);
+CommandFactory = function(){
 }
-
-CommandRight = function(){
-	this.increment = new Position(1,0);
+CommandFactory.prototype.left = function(){
+	return new Position(-1,0);
+}
+CommandFactory.prototype.right = function(){
+	return new Position(1,0);
+}
+CommandFactory.prototype.forwards = function(){
+	return new Position(0,1);
+}
+CommandFactory.prototype.backwards = function(){
+	return new Position(0,-1);
 }
