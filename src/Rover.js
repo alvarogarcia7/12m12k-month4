@@ -3,9 +3,17 @@ Rover = function(){
 }
 
 Rover.prototype.receive = function(commandString){
-	var each, command, commandFactory = new CommandFactory(), commands = [], currentCommand;
+	var each, command;
 	
-	
+	commands = this.toCommands(commandString);
+
+	for(each in commands){
+		this.position.applyCommand(commands[each]);
+	}
+}
+
+Rover.prototype.toCommands = function(commandString){
+	var each, commands = [], currentCommand, commandFactory = new CommandFactory();
 	for(each in commandString){
 		command=commandString[each];
 
@@ -20,11 +28,9 @@ Rover.prototype.receive = function(commandString){
 		}
 		commands.push(currentCommand);
 	}
-	
-	for(each in commands){
-		this.position.applyCommand(commands[each]);
-	}
+	return commands;
 }
+
 
 Position = function(x, y){
 	this.x=x;
