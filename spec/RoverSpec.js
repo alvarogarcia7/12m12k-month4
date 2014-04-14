@@ -15,7 +15,7 @@ describe("Rover", function(){
 	describe("moves", function(){
 		it("left", function(){
 			rover.receive("l");
-			expect(rover).toBeIn(new Position(undefined, undefined));
+			expect(rover).toBeIn(new Position(-1, 0));
 		});
 	});
 	
