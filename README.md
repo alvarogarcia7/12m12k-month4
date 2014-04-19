@@ -33,8 +33,8 @@ Hint: the factory will be useful to decouple the "reading the characters to asso
 Hint: the strategy will be useful to "associate the value to a certain object".
 
 Links:
-*http://en.wikipedia.org/wiki/Strategy_pattern
-*http://en.wikipedia.org/wiki/Factory_method_pattern
-*http://geekswithblogs.net/subodhnpushpak/archive/2009/09/18/the-23-gang-of-four-design-patterns-.-revisited.aspx
+* http://en.wikipedia.org/wiki/Strategy_pattern
+* http://en.wikipedia.org/wiki/Factory_method_pattern
+* http://geekswithblogs.net/subodhnpushpak/archive/2009/09/18/the-23-gang-of-four-design-patterns-.-revisited.aspx
 
 Send me the code via email if you have my work email account or a pull request and we'll review the code
